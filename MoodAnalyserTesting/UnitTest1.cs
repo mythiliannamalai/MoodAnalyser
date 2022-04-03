@@ -1,5 +1,5 @@
+using System;
 using NUnit.Framework;
-
 namespace MoodAnalyserTesting
 {
     public class Tests
@@ -8,7 +8,8 @@ namespace MoodAnalyserTesting
         [SetUp]
         public void Setup()
         {
-            moodAnalyser = new MoodAnalyser();
+            string res = "";
+            moodAnalyser = new MoodAnalyser(res);
         }
         //TC-1.1
         [Test]

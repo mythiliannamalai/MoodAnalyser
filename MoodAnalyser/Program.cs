@@ -3,9 +3,10 @@ namespace MoodAnalyserTesting
 {
     public class MoodAnalyser
     {
-        public MoodAnalyser()
+        string Message;
+        public MoodAnalyser(string Message)
         {
-
+            this.Message = Message;
         }
         public string AnalyseMood(string Message)
         {
