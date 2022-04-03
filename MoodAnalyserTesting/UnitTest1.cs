@@ -1,6 +1,7 @@
 using System;
+using MoodAnalyser;
 using NUnit.Framework;
-namespace MoodAnalyserTesting
+namespace MoodAnalyser
 {
     public class Tests
     {
@@ -34,6 +35,22 @@ namespace MoodAnalyserTesting
             moodAnalyser = new MoodAnalyser();
             string Message = moodAnalyser.AnalyseMood();
             Assert.AreEqual("HAPPY", Message);
+        }
+        //TC-3.1
+        [Test]
+        public void GivenMassage_When_Empty_CustemerException()
+        {
+            moodAnalyser = new MoodAnalyser();
+            string Message = "";
+            string Expected = "Mood should not empty";
+            try
+            {
+                moodAnalyser = new MoodAnalyser(Message);
+            }
+            catch (MoodAnalyserCustomException Exception)
+            {
+                Assert.AreEqual(Expected, Exception.Message);
+            }
         }
     }
 }

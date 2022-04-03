@@ -1,5 +1,9 @@
 ﻿using System;
-namespace MoodAnalyserTesting
+using MoodAnalyser;
+using System.Reflection;
+using System.Text.RegularExpressions;
+
+namespace MoodAnalyser
 {
     public class MoodAnalyser
     {
@@ -16,6 +20,8 @@ namespace MoodAnalyserTesting
         {
             try
             {
+                if (Message.Equals(string.Empty))
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MOOD, "Mood should not empty");
                 if (Message.Contains("SAD"))
                     return "SAD";
                 else return "HAPPY";
@@ -27,7 +33,7 @@ namespace MoodAnalyserTesting
         }
         public static void Main(string[] args)
         {
-
+            Console.WriteLine("Welcome in Mood Analyser");
         }
     }
 }
