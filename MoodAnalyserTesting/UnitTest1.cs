@@ -15,14 +15,24 @@ namespace MoodAnalyserTesting
         [Test]
         public void GivenMassage_When_ShoudReturnSad()
         {
-            string Message = moodAnalyser.AnalyseMood("I am in SAD mood");
+            moodAnalyser = new MoodAnalyser("I am in SAD mood");
+            string Message = moodAnalyser.AnalyseMood();
             Assert.AreEqual("SAD", Message);
         }
         //TC-1.2
         [Test]
         public void GivenMassage_When_ShoudReturnHappy()
         {
-            string Message = moodAnalyser.AnalyseMood("I am in ANY mood");
+            moodAnalyser = new MoodAnalyser("I am in ANY mood");
+            string Message = moodAnalyser.AnalyseMood();
+            Assert.AreEqual("HAPPY", Message);
+        }
+        //TC-2.1
+        [Test]
+        public void GivenMassage_When_Null_ShoudReturnHappy()
+        {
+            moodAnalyser = new MoodAnalyser();
+            string Message = moodAnalyser.AnalyseMood();
             Assert.AreEqual("HAPPY", Message);
         }
     }
